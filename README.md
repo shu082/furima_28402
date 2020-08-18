@@ -57,6 +57,7 @@ Things you may want to cover:
 | delivery_source | integer    | null:false                   |
 | delivery_days   | integer    | null:false                   |
 | user            | references | null:false, foreign_key:true |
+| status          | integer    | null:false                   |
 
 ### Association
 
@@ -82,8 +83,6 @@ Things you may want to cover:
 - belongs_to :items_management
 
 ##　items_managements テーブル
-
-- belongs_to : address
 
 | Column | Type       | Option                       |
 | ------ | ---------- | ---------------------------- |
