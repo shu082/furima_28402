@@ -42,8 +42,7 @@ Things you may want to cover:
 ### Association
 
 - has_many :items
-- has_many :addresses
-- has_many :items_management
+- has_many :items_managements
 
 ## items テーブル
 
@@ -75,7 +74,8 @@ Things you may want to cover:
 | block            | string     | null:false                   |
 | building_name    | string     |                              |
 | tel              | string     | null:false                   |
-| user             | references | null:false, foreign_key:true |
+| items_management | references | null:false, foreign_key:true ||
+
 
 ### Association
 
@@ -94,3 +94,4 @@ Things you may want to cover:
 
 - belongs_to :user
 - belongs_to :item
+- has_one : address
