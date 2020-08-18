@@ -42,7 +42,7 @@ Things you may want to cover:
 ### Association
 
 - has_many :items
-- has_many :customers
+- has_many :address
 - has_many :items_management
 
 ## items テーブル
@@ -61,11 +61,10 @@ Things you may want to cover:
 
 ### Association
 
-- belongs_to :users
-- has_one :customer
-- has_many :items_management
+- belongs_to :user
+- belongs_to :items_management
 
-## customers　テーブル
+## address　テーブル
 
 | Column           | Type       | Option                       |
 | ---------------- | ---------- | ---------------------------- |
@@ -73,17 +72,15 @@ Things you may want to cover:
 | post_number      | string     | null:false                   |
 | prefectures      | integer    | null:false                   |
 | city             | string     | null:false                   |
-| block            | string     | null:false                   |
-| building_name    | string     |                              |
-| tel              | string     | null:false                   |
-| user             | references | null:false, foreign_key:true |
 
-### Association テーブル
 
-- belongs_to : users
-- belongs_to : items
+### Association
 
-##　items_management テーブル
+- belongs_to :items_management
+
+##　items_managements テーブル
+
+- belongs_to : address
 
 | Column | Type       | Option                       |
 | ------ | ---------- | ---------------------------- |
@@ -92,5 +89,5 @@ Things you may want to cover:
 
 ### Association
 
-- has_many :users
-- has_many :items
+- belongs_to :user
+- belongs_to :item
