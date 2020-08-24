@@ -6,13 +6,17 @@ class User < ApplicationRecord
 
   with_options presence: true do
     validates :nick_name
-    validates :email, uniqueness: true, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
-    validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i }
+    email = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+    password = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i
+    zenkaku = /\A[ぁ-んァ-ン一-龥]/
+    kana_zenkaku = /\A[ァ-ヶー－]+\z/
+    validates :email, uniqueness: true, format: { with: email }
+    validates :password, format: { with: password }
     validates :password, confirmation: true
-    validates :first_name, format: { with: /\A[ぁ-んァ-ン一-龥]/ }
-    validates :last_name, format: { with: /\A[ぁ-んァ-ン一-龥]/ }
-    validates :katakana_first_name, format: { with: /\A[ァ-ヶー－]+\z/ }
-    validates :katakana_last_name, format: { with: /\A[ァ-ヶー－]+\z/ }
+    validates :first_name, format: { with: zenkaku }
+    validates :last_name, format: { with: zenkaku }
+    validates :katakana_first_name, format: { with: kana_zenkaku }
+    validates :katakana_last_name, format: { with: kana_zenkaku }
     validates :birthday
   end
 end
