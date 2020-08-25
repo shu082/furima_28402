@@ -23,7 +23,7 @@ Things you may want to cover:
 
 * ...
 
-#　テーブル設計
+# テーブル設計
 
 ## users テーブル
 
@@ -64,7 +64,7 @@ Things you may want to cover:
 - belongs_to :user
 - has_one :items_management
 
-## addresses　テーブル
+## addresses テーブル
 
 | Column           | Type       | Option                       |
 | ---------------- | ---------- | ---------------------------- |
@@ -82,7 +82,7 @@ Things you may want to cover:
 
 - belongs_to :items_management
 
-##　items_managements テーブル
+## items_managements テーブル
 
 | Column | Type       | Option                       |
 | ------ | ---------- | ---------------------------- |

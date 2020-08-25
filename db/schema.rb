@@ -10,7 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_18_093855) do
+ActiveRecord::Schema.define(version: 2020_08_25_025550) do
+
+  create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "image", null: false
+    t.string "name", null: false
+    t.text "description", null: false
+    t.integer "price", null: false
+    t.integer "category", null: false
+    t.integer "delivery_charge", null: false
+    t.integer "delivery_source", null: false
+    t.integer "delivery_days", null: false
+    t.bigint "user_id", null: false
+    t.integer "status", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_items_on_user_id"
+  end
+
+  create_table "items_managements", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "item_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["item_id"], name: "index_items_managements_on_item_id"
+    t.index ["user_id"], name: "index_items_managements_on_user_id"
+  end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nick_name", null: false
@@ -30,4 +55,7 @@ ActiveRecord::Schema.define(version: 2020_08_18_093855) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "items", "users"
+  add_foreign_key "items_managements", "items"
+  add_foreign_key "items_managements", "users"
 end

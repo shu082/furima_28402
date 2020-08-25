@@ -19,4 +19,7 @@ class User < ApplicationRecord
     validates :katakana_last_name, format: { with: kana_zenkaku }
     validates :birthday
   end
+
+  has_many :items
+  has_many :items_managements
 end
