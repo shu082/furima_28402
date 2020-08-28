@@ -12,7 +12,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :delivery_day
 
   with_options presence: true do
-    #validates :image
+    validates :image
     validates :name
     validates :description
     validates :category_id, numericality: { other_than: 1 }
