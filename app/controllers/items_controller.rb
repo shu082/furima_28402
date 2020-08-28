@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-
+  before_action :move_to_sign_in, except: [:index, :show]
   def index
     @items = Item.includes(:items_management).order("created_at DESC")
   end
@@ -22,5 +22,11 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(:image,:name,:description,:category_id,:status_id,:delivery_charge_id,:delivery_source_id,:delivery_days_id,:price,).merge(user_id: current_user.id)
+  end
+
+  def move_to_sign_in
+    unless user_signed_in?
+      redirect_to new_user_session_path
+    end
   end
 end
