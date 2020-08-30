@@ -19,7 +19,7 @@ class Item < ApplicationRecord
     validates :status_id, numericality: { other_than: 1 }
     validates :delivery_charge_id, numericality: { other_than: 1 }
     validates :delivery_source_id, numericality: { other_than: 0 }
-    validates :delivery_days_id, numericality: { other_than: 1 }
+    validates :delivery_day_id, numericality: { other_than: 1 }
     validates :price, numericality: {only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999}
   end
 
