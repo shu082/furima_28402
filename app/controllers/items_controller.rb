@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show]
+  before_action :set_item, only: [:show, :edit]
   before_action :move_to_sign_in, except: [:index, :show]
   def index
     @items = Item.includes(:items_management).order("created_at DESC")
@@ -30,6 +30,9 @@ class ItemsController < ApplicationController
       render :show
     end
   end
+
+def edit
+end
 
   private
 
