@@ -1,5 +1,5 @@
 function check (e) {
-  if (document.URL.match(/new/)) {
+  if (document.URL.match(/new/) || document.URL.match(/edit/)) {
     const itemPrice = document.getElementById('item-price').value
     const tax = `${itemPrice * 0.1}`
     const addTaxPrice = document.getElementById('add-tax-price')
