@@ -1,6 +1,5 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show]
-  #before_action :set_item_id, only: [:destroy]
   before_action :move_to_sign_in, except: [:index, :show]
   def index
     @items = Item.includes(:items_management).order("created_at DESC")
@@ -41,10 +40,6 @@ class ItemsController < ApplicationController
   def set_item
     @item = Item.find(params[:id])
   end
-
-  # def set_item_id
-  #   item = Item.find(params[:id])
-  # end
 
   def move_to_sign_in
     unless user_signed_in?
