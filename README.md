@@ -68,9 +68,8 @@ Things you may want to cover:
 
 | Column           | Type       | Option                       |
 | ---------------- | ---------- | ---------------------------- |
-| delivery_address | string     | null:false                   |
 | post_number      | string     | null:false                   |
-| prefectures      | integer    | null:false                   |
+| prefecture_id      | integer    | null:false                   |
 | city             | string     | null:false                   |
 | block            | string     | null:false                   |
 | building_name    | string     |                              |
