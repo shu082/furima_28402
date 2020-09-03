@@ -19,10 +19,7 @@ const pay = () => {
           const token = response.id;
           const renderDom = document.getElementById("charge-form");
           const tokenObj = `<input value=${token} type="hidden" name='token'>`;
-          // const price = document.getElementById("price").textContent;
-          // const priceObj = `<input value=${price} type="hidden" name='price'>`;
           renderDom.insertAdjacentHTML("beforeend", tokenObj);
-          // renderDom.insertAdjacentHTML("beforeend", priceObj);
         }
           document.getElementById("card-number").removeAttribute("name");
           document.getElementById("card-cvc").removeAttribute("name");
