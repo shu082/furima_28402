@@ -2,8 +2,9 @@ class TransactionsController < ApplicationController
   before_action :move_to_login, expect: [:index]
   before_action :move_to_top, expect: [:index]
   before_action :move_to_top_page, expect: [:index]
+  before_action :set_item, only: [:index]
   def index
-    @item = Item.find(params[:item_id])
+
   end
 
   def create
@@ -30,22 +31,26 @@ class TransactionsController < ApplicationController
   end
 
   def move_to_top
-    @item = Item.find(params[:item_id])
+    set_item
     if current_user.id == @item.user_id
       redirect_to root_path
     end
   end
 
   def move_to_top_page
-    @item = Item.find(params[:item_id])
+    set_item
     if @item.items_management
       redirect_to root_path
     end
   end
 
+  def set_item
+    @item = Item.find(params[:item_id])
+  end
+
 
   def pay_item
-    @item = Item.find(params[:item_id])
+    set_item
     Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
     Payjp::Charge.create(
       amount: @item.price,  # 商品の値段

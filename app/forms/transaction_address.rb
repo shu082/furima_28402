@@ -4,9 +4,9 @@ class TransactionAddress
   attr_accessor :post_number, :prefecture_id, :city, :block, :building_name, :tel, :token, :price, :item_id, :user_id
 
   with_options presence: true do
-    post_number = /\A\d{3}[-]\d{4}\z/
+    POST_NUMBER = /\A\d{3}[-]\d{4}\z/
     VALID_PHONE_REGEX = /\A\d{10}$|^\d{11}\z/
-    validates :post_number, format: { with: post_number}
+    validates :post_number, format: { with: POST_NUMBER}
     validates :prefecture_id, numericality: { other_than: 0 }
     validates :city
     validates :block
