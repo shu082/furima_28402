@@ -43,7 +43,6 @@ class TransactionsController < ApplicationController
     end
   end
 
-  def
 
   def pay_item
     @item = Item.find(params[:item_id])
