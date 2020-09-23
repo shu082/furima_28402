@@ -55,7 +55,7 @@ Things you may want to cover:
 | category_id        | integer    | null:false                   |
 | delivery_charge_id | integer    | null:false                   |
 | delivery_source_id | integer    | null:false                   |
-| delivery_days_id   | integer    | null:false                   |
+| delivery_day_id   | integer    | null:false                   |
 | user            | references | null:false, foreign_key:true |
 | status_id          | integer    | null:false                   |
 
